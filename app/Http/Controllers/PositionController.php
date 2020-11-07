@@ -14,7 +14,8 @@ class PositionController extends Controller
      */
     public function index()
     {
-        //
+        $positions=Position::return view("positions.index", compact("positions")::get()
+        ]);
     }
 
     /**
@@ -24,7 +25,13 @@ class PositionController extends Controller
      */
     public function create()
     {
-        //
+        $positions=new Position;
+        $title= __("Añadir Cargo");
+        $textButton=__("Crear");
+        $route=route("positions.store");
+        return view("positions.create", compact("title",
+        "textButton", "route", "position"
+        ));
     }
 
     /**
@@ -35,7 +42,13 @@ class PositionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            "description"=>"required|max:90",
+
+        ]);
+        Position::create($request->only("Description"));
+        return redirect(route("positions.index"))
+            ->with("success", __("¡Cargo registrado!"));
     }
 
     /**
@@ -57,7 +70,12 @@ class PositionController extends Controller
      */
     public function edit(Position $position)
     {
-        //
+        $update=true;
+        $title= __("Editar Cargo");
+        $textButton=__("Actualizar");
+        $route=route("positions.update",["position"=>$position]);
+        return view("positions.edit", compact("update", "title","textButton","route","position"
+        ));
     }
 
     /**
@@ -69,7 +87,13 @@ class PositionController extends Controller
      */
     public function update(Request $request, Position $position)
     {
-        //
+        $this->validate($request,[
+            "description"=>"required",
+            "autenticacion"=>"required",
+
+        ]);
+        $position->fill($request->only("description","autenticacion"))->save();
+        return back()->with("success", __("¡Datos actualizado!"));
     }
 
     /**
@@ -80,6 +104,7 @@ class PositionController extends Controller
      */
     public function destroy(Position $position)
     {
-        //
+        $position->delete();
+        return back()->with("success", __("¡Dato  Eliminado!"));
     }
 }

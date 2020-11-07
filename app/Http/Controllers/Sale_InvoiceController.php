@@ -24,7 +24,7 @@ class Sale_InvoiceController extends Controller
      */
     public function create()
     {
-        //
+            //
     }
 
     /**
@@ -35,7 +35,7 @@ class Sale_InvoiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            //
     }
 
     /**
@@ -46,7 +46,7 @@ class Sale_InvoiceController extends Controller
      */
     public function show(Sale_Invoice $sale_Invoice)
     {
-        //
+//
     }
 
     /**
@@ -57,7 +57,7 @@ class Sale_InvoiceController extends Controller
      */
     public function edit(Sale_Invoice $sale_Invoice)
     {
-        //
+            //
     }
 
     /**
@@ -69,7 +69,7 @@ class Sale_InvoiceController extends Controller
      */
     public function update(Request $request, Sale_Invoice $sale_Invoice)
     {
-        //
+            //
     }
 
     /**
@@ -80,6 +80,6 @@ class Sale_InvoiceController extends Controller
      */
     public function destroy(Sale_Invoice $sale_Invoice)
     {
-        //
+            //
     }
 }
