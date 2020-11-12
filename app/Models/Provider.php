@@ -14,6 +14,4 @@ class Provider extends Model
         'direction',
         'phone',
     ];
-
-   
 }
