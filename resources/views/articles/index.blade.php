@@ -1,4 +1,4 @@
-@extends("temasJORGE.app")
+@extends("temasLady.app")
 
 @section('content')
     <div class="flex justify-center flex-wrap bg-gray-200 p-4 mt-5">

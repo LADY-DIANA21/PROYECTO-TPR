@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sale;
-use App\Models\Personal;
+use App\Models\Employee;
 
 use Illuminate\Http\Request;
 
@@ -21,7 +21,7 @@ class SaleController extends Controller
     {
         $sales=Sale::with("personal","user")->paginate(15);
         return view("sales.index", compact("sales"),[
-            "personal"=>Personal::get()
+            "employees"=>Employee::get()
         ]);
     
     }
@@ -33,12 +33,12 @@ class SaleController extends Controller
      */
     public function create()
     {
-        $personal=Personal::get();
+        $employees=Employee::get();
         $sale=new Sale;
         $title= __("Añadir Sale");
         $textButton=__("Crear");
         $route=route("sales.store");
-        return view("sales.create", compact("title", "textButton", "route","sale","personal"));
+        return view("sales.create", compact("title", "textButton", "route","sale","employees"));
     
     }
 
@@ -51,11 +51,11 @@ class SaleController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            "id_personal"=>"required|max:90",
+            "id_employee"=>"required|max:90",
             "quantity"=>"required",
             "date"=>"required"
         ]);
-        Sale::create($request->only("id_personal","quantity","date"));
+        Sale::create($request->only("id_employee","quantity","date"));
         return redirect(route("sales.index"))
             ->with("success", __("Sale registrado!"));
     }

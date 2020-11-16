@@ -1,4 +1,4 @@
-@extends("temasJORGE.app")
+@extends("temasLady.app")
 
 @section('content')
     <div class="flex justify-center flex-wrap bg-gray-200 p-4 mt-5">
@@ -14,7 +14,7 @@
             <tr>
             <th class="px-4 py-2">{{ __("Cantidad")}}</th>
             <th class="px-4 py-2">{{ __("Nombre del personal")}}</th>
-            
+            <th class="px-4 py-2">{{ __("Nombre del usuario")}}</th>
             <th class="px-4 py-2">{{ __("Fecha")}}</th>
             <th class="px-4 py-2">{{ __("Acciones")}}</th>
             </tr>
@@ -26,11 +26,12 @@
                    
                     
 
-                    @foreach($personal as $personal)
-                    @if($personal->id_personal == $personal->id)
-                    <td class="border px-4 py-2">{{ $personal->name}}</td>
+                    @foreach($employees as $employee)
+                    @if($employee->id_employee == $employee->id)
+                    <td class="border px-4 py-2">{{ $employee->name}}</td>
                     @endif
                     @endforeach
+
                     <td class="border px-4 py-2">{{ $sale->date }}</td>
                     
                  
@@ -55,7 +56,7 @@
                     <td colspan="4">
                         
                         <div class="bg-red-100 text-center border border-red-400 text-red-700 px-4 py-3 rounded relative " role="alert">
-                            <p><strong class="font-bold">{{ __("No hay SALES JAJAJ") }}</strong></p>
+                            <p><strong class="font-bold">{{ __("No hay SALES ") }}</strong></p>
                             <span class="block sm:inline">{{ __("Todavía no hay nada que mostrar aquí") }}</span>
                         </div>
                         

@@ -5,7 +5,7 @@ use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PositionController;
-use App\Http\Controllers\PersonalController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\SaleController;
 
 
@@ -36,5 +36,5 @@ Route::resource('categories','App\Http\Controllers\CategoryController');
 Route::resource('providers', ProviderController::class);
 Route::resource('articles', ArticleController::class);
 Route::resource('positions', PositionController::class);
-Route::resource('personal', PersonalController::class);
+Route::resource('employees', EmployeeController::class);
 Route::resource('sales', SaleController::class);

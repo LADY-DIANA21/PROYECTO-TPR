@@ -20,9 +20,9 @@
                 {{ __("Nombre del Personal") }}
             </label>
             
-                <select name="id_personal"  id="id_personal" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                @foreach ($personal as $personal)
-                    <option value="{{ $personal->id }}">{{$personal->surname, $personal->name}}</option>
+                <select name="id_employee"  id="id_employee" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                @foreach ($employees as $employee)
+                    <option value="{{ $employee->id }}">{{$employee->surname, $employee->name}}</option>
                 @endforeach
                 </select>
             
@@ -37,6 +37,7 @@
         </div>
         
     </div>
+
 
     <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full px-3">
