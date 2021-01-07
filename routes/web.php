@@ -6,8 +6,9 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\SaleController;
-
+use App\Http\Controllers\ShoppingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,10 +32,13 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //Esta bien asi 
 
 Route::resource('categories','App\Http\Controllers\CategoryController');
+Route::resource('clients','App\Http\Controllers\ClientController');
 
 //Pero tambien puedes hacerlo asi  y arriba declaras el controladors
 Route::resource('providers', ProviderController::class);
+Route::resource('providers', ClientController::class);
 Route::resource('articles', ArticleController::class);
 Route::resource('positions', PositionController::class);
 Route::resource('employees', EmployeeController::class);
 Route::resource('sales', SaleController::class);
+Route::resource('shopping', ShoppingController::class);

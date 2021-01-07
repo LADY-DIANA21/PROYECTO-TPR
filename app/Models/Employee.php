@@ -28,9 +28,7 @@ class Employee extends Model
         return $this->belongsTo(Position::class);
     }
 
-    public function users(){
-        return $this->belongsTo('App\User', 'user_id');
-    }
+
 
     public function sales(){
         return $this->hasmany('App\Sale');

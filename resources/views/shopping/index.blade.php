@@ -75,7 +75,7 @@
     </table>
 
     
-    @if($shopping->count())
+    @if($shoppings->count())
         <div class="mt-3">
             {{ $shoppings->links() }}
         </div>
