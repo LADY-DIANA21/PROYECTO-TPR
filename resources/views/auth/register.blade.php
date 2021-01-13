@@ -1,8 +1,11 @@
+</div>
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
         </x-slot>
+
+        <script src="https://www.google.com/recaptcha/api.js"></script>
 
         <x-jet-validation-errors class="mb-4" />
 
@@ -28,6 +31,10 @@
                 <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
                 <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
+            
+<br>
+
+            <div class="g-recaptcha" data-sitekey="6LfK0yQaAAAAAKwvkEKdwfp_xxNl-_ANAwWZ-oCH"></div>
 
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
