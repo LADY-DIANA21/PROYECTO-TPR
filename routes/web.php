@@ -9,6 +9,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\ShoppingController;
+use App\Http\Controllers\productoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,9 +37,11 @@ Route::resource('clients','App\Http\Controllers\ClientController');
 
 //Pero tambien puedes hacerlo asi  y arriba declaras el controladors
 Route::resource('providers', ProviderController::class);
-Route::resource('providers', ClientController::class);
+Route::resource('clients', ClientController::class);
 Route::resource('articles', ArticleController::class);
 Route::resource('positions', PositionController::class);
 Route::resource('employees', EmployeeController::class);
 Route::resource('sales', SaleController::class);
 Route::resource('shopping', ShoppingController::class);
+Route::resource('producto', productoController::class);
+Route::resource('producto-detail/{id}', productoController::class);
