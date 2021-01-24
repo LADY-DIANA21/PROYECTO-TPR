@@ -19,7 +19,7 @@
                     {{-- Detalle productos --}}
                         <div class="row">
                                 <div class="col-6">
-                                    <img src="img/{{$product->imagen}}" width="300" height="300">
+                                    <img src="img/$product->imagen" width="300" height="300">
                                     <h4>{{ $product->name }}</h4>
                                     <p>{{ $product->description }}</p>
                                     <p><strong>Precio: </strong> {{ $product->price }}Bs</p>
