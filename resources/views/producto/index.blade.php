@@ -79,7 +79,7 @@ h1 {
   color: white;
 }
 body{
-        background: url(../img/9.jpg)no-repeat center center fixed;
+        background: url(../img/8.jpg)no-repeat center center fixed;
 }
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -90,57 +90,24 @@ body{
 </div>
     
     <div class="row">
-@foreach($productos as $producto)
+@foreach($products as $product)
     
 <div class="column nature">
 
   <div class="content">
   
   
-      <h4><center>{{$producto->nombre}}</center></h4>
-    <center><img src="img/{{$producto->imagen}}" width="50%" alt=""</center>
+      <h4><center>{{$product->nombre}}</center></h4>
+    <center><img src="img/{{$product->imagen}}" width="50%" alt=""</center>
       
-      <center>{{$producto->descripcion}}</center>
-      <p><center><strong>Precio :  </strong>{{$producto->precio}}</center></p>
+      <center>{{$product->descripcion}}</center>
+      <p><center><strong>Precio :  </strong>{{$product->precio}}</center></p>
       
-     <a href="{{ route('producto.edit', $producto) }}" class="btn btn-warning">Editar</a> 
+     <a name=href="{{ route('producto.edit', $product) }}" class="btn btn-warning">Editar</a> 
+     <a name=href="{{ route('producto.edit', $product) }}" class="btn btn-warning">Eliminar</a> 
 
-      <a faref="{{url('add-to-cart/'.$producto->id)}}" class="btn btn-primary btn-lg btn-block" role="button" aria-pressed="true">Agregar al carrito</a>
-      <a faref="{{url('producto-detail/'.$producto->id)}}" class="btn btn-secondary btn-lg btn-block" role="button" aria-pressed="true">Detalle</a>
-      </br>
       
-      <div id="paypal-button-container"></div>
-
-
-    <!-- Include the PayPal JavaScript SDK -->
-    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
-
-    <script>
-        // Render the PayPal button into #paypal-button-container
-        paypal.Buttons({
-
-            // Set up the transaction
-            createOrder: function(data, actions) {
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: '88.44'
-                        }
-                    }]
-                });
-            },
-
-            // Finalize the transaction
-            onApprove: function(data, actions) {
-                return actions.order.capture().then(function(details) {
-                    // Show a success message to the buyer
-                    alert('Transaction completed by ' + details.payer.name.given_name + '!');
-                });
-            }
-
-
-        }).render('#paypal-button-container');
-    </script>
+   
 
     </div>
   

@@ -10,6 +10,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\ShoppingController;
 use App\Http\Controllers\productoController;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,4 +45,22 @@ Route::resource('employees', EmployeeController::class);
 Route::resource('sales', SaleController::class);
 Route::resource('shopping', ShoppingController::class);
 Route::resource('producto', productoController::class);
-Route::resource('producto-detail/{id}', productoController::class);
+/*
+//ruta del proceso de pago
+Route::resource('paypal', PaymentController::class);
+
+//ruta del estado de pago
+Route::resource('status', PaymentController::class);
+*/
+
+// route for check status of the payment
+Route::get('/paypal/pay', [App\Http\Controllers\PaymentController::class, 'payWithPayPal']);
+
+Route::get('/paypal/status', [App\Http\Controllers\PaymentController::class, 'payPalStatus']);
+
+Route::get('/products', 'App\Http\Controllers\ProductsController@products')->name('products');
+Route::get('product-detail/{id}', 'App\Http\Controllers\ProductsController@detail');
+Route::get('cart', 'App\Http\Controllers\ProductsController@cart');
+Route::get('add-to-cart/{id}', 'App\Http\Controllers\ProductsController@addToCart');
+
+

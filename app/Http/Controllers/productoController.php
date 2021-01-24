@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Producto;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class productocontroller extends Controller
@@ -17,7 +18,7 @@ class productocontroller extends Controller
     public function index()
     {
         return view('producto.index', [
-            'productos'=>Producto::get()
+            'products'=>Product::get()
         ]);
 
     }
@@ -30,7 +31,7 @@ class productocontroller extends Controller
     public function create()
     {
         return view('producto.create', [
-            'producto'=>new Producto
+            'products'=>new Product
         ]);
     }
 
@@ -43,11 +44,10 @@ class productocontroller extends Controller
     public function store(Request $request)
     {
        
-        $riot=new Producto;
-        $riot->nombre =$request->get('nombre');
-        $riot->descripcion =$request->get('descripcion');
-        $riot->precio =$request->get('precio');
-        $riot->cantidad =$request->get('cantidad');
+        $riot=new Product;
+        $riot->name =$request->get('name');
+        $riot->description =$request->get('description');
+        $riot->price =$request->get('price');
         
        
         if ($request->hasFile('imagen')){
@@ -56,7 +56,6 @@ class productocontroller extends Controller
                $riot->imagen=$files->getClientOriginalName();
            }
            $riot->save();
-    return redirect()->route('producto.index');
     /*$fields=request()->validate([
     'nombre'=>'required',
     'descripcion'=>'required',
@@ -65,7 +64,7 @@ class productocontroller extends Controller
     'imagen'=>'required',
        ]);
        Producto::create($fields);*/
-       return redirect()->route('producto.index')->with('status','Registro exitoso.');
+       return redirect()->route('products')->with('status','Registro exitoso.');
     }
 
     /**
@@ -99,13 +98,13 @@ class productocontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Producto $producto)
+  /*  /public function update(Producto $producto)
     {
         $fields=request()->validate([
-            'nombre'=>'required',
-            'descripcion'=>'required',
-            'precio'=>'required',
-            'cantidad'=>'required',
+            'name'=>'required',
+            'description'=>'required',
+            'price'=>'required',
+
             
                    ]);
                    $producto->update($fields);
@@ -123,8 +122,8 @@ class productocontroller extends Controller
         //
     }
 
-    public function detail($id){
-        return view('producto.detail', [
+    public function detalle(){
+        return view('producto.detalle', [
             'productos'=>Producto::get()
         ]);
         

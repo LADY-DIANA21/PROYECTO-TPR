@@ -42,32 +42,30 @@ body{
             <div class="form-group row">
                 <label for="nombre"  class="col-sm-2 col-form-label">Nombre:</label>
                 <div class="col-sm-10">
-                    <input name="nombre" type="text" class="form-control" size="50"  placeholder="Nombre de Articulo">
+                    <input name="name" type="text" class="form-control" size="50"  placeholder="Nombre de Articulo" id="name">
                 </div>
             </div>  
             <div class="form-group row">
                 <label for="descripcion" class="col-sm-2 col-form-label">Descripcion:</label>
                 <div class="col-sm-10">
-                    <input name="descripcion" type="text" class="form-control" size="50" placeholder="Descripcion del Articulo">
+                    <input name="description" type="text" class="form-control" size="50" placeholder="Descripcion del Articulo" id="description">
                 </div>
             </div>  
+              
             <div class="form-group row">
-                <label for="precio" class="col-sm-2 col-form-label">Precio:</label>
+                <label for="price" class="col-sm-2 col-form-label">Precio:</label>
                 <div class="col-sm-10">
-                    <input name="precio" type="text" class="form-control" size="50" placeholder="Precio del Articulo">
+                    <input name="price" type="text" class="form-control" size="50" placeholder="Precio del Articulo" id="price">
                 </div>
-                
-            <div class="form-group row">
-                <label for="cantidad" class="col-sm-2 col-form-label">Cantidad:</label>
-                <div class="col-sm-10">
-                    <input name="cantidad" type="text" class="form-control" size="50" placeholder="Catidad de Articulo">
-                </div>
-            <div class="form-group row">
+                <br>
+                <br>
+                <div class="form-group row">
                 <label for="file" class="col-sm-2 col-form-label">Imagen:</label>
                 <div class="col-sm-10">
-                  <br>  <input class="active" name="imagen" type="file" class="form-control" >
+                <input class="active" name="imagen" id="imagen" type="file" class="form-control" >
                 </div>
-            </div> 
+
+            
             </div> 
             </h2>
             <br><center><button type="submit" class="btn btn-outline-primary">Guardar</center></button> 
